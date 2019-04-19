@@ -21,19 +21,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    age: state.age
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addNum: () => dispatch ({
-      type: 'ADD_NUM',
-      value: 1
-    })
-  }
-}
-
 export default connect(mapStateToProps, mapDispatchToProps)(App);
