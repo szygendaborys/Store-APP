@@ -18,3 +18,19 @@ p, ul {
 .main-container {
   background-color: $text;
 }
+
+.footer {
+  border-top:2px solid black;
+  text-align: end;
+  padding:5px 4rem;
+  background-color:$border;
+  color:$text;
+  p {
+    transition:0.2s;
+    text-shadow: 1px 1px 2px black;
+  }
+  p:hover {
+    cursor: default;
+    color:$highlight;
+  }
+}

@@ -10,7 +10,14 @@ class Itemlist extends Component {
    render() {
 
     const items = this.props.item;
-    const item = items.map(el => <Item id={el.id} name={el.name} price={el.price} desc={el.desc} key={el.id}/>)
+    const item = items.map(el => <Item 
+      id={el.id} 
+      name={el.name} 
+      price={el.price} 
+      desc={el.desc} 
+      key={el.id} 
+      orderedNum={el.orderedNum} 
+      wasLiked={el.wasLiked}/>)
 
     return (
       <div className="itemlist row">

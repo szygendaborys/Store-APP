@@ -1,10 +1,27 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import * as actionCreator from '../store/actions/actions'
+
 import '../scss/Navbar.scss'
 
-import { connect } from 'react-redux'
+import Cart from './Cart'
 
 class Header extends Component {
+
   render() {
+
+    let style ='none';
+
+    if(this.props.menuOpened) {
+      style = 'block';
+      
+    }
+    
+    if(!this.props.menuOpened) {
+       style = 'none';
+       
+    }
+
     return (
       <div className='container header'>
         <h1 className='logo'>e<span className='logo__primary'>Company</span></h1>
@@ -29,20 +46,30 @@ class Header extends Component {
             </div>
             <div className='header-cart'>
                 <span>{this.props.cart}</span>
-                <i className="fas fa-shopping-cart"></i>
-                <p>Cart</p>
+                <i onClick={() => this.props.toggleMenu(this.props.menuOpened)} className="fas fa-shopping-cart"></i>
+                <div className='header-cart__desc'><p onClick={() => this.props.toggleMenu(this.props.menuOpened)}>Cart <i id='cartArrow' className="fas fa-angle-right"></i></p>
+                <Cart style={style}/>
+                </div>
+                
             </div>
         </div>
       </div>
-    )
+    )    
   }
 }
 
 const mapStateToProps = state => {
     return {
         liked:state.liked,
-        cart:state.cart
+        cart:state.cart,
+        menuOpened:state.menuOpened
     }
 }
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = dispatch => {
+    return {
+      toggleMenu: menuOpened => dispatch(actionCreator.toggleMenu(menuOpened))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

@@ -1,0 +1,76 @@
+@import 'Var';
+
+.header-cart .cart {
+    position: absolute;
+    width:250px;
+    background-color:$cart-background;
+    border:2px solid $border;
+    p {
+        font-size:1.2rem;
+        padding:5px;
+    }
+
+    .cart-list {
+        border-top:2px solid $border;
+        padding:1rem 0;
+        ul {
+            border:none;
+            display:flex;
+            flex-direction: column;
+            background-color:$cart-background;
+        }
+        &__item {
+            width:100%;
+            margin:5px 0;
+            background-color:$cart-background;
+            list-style:none;
+        }
+        &__deletebutton {
+            border:1px solid black;
+            color:$blue;
+            background-color:$background;
+            margin-left:5px;
+            font-size:1.2rem;
+            font-weight: bold;
+            width:25px;
+            transition:0.2s;
+            border-radius:9px;
+            &:hover {
+                background-color:$highlight;
+                color:$text;
+                border-radius:5px;
+            }
+        }
+
+
+    }
+
+    .cart-buttons {
+        &__cancel, &__checkout {
+            width:50%;
+            border:none;
+            border-top:2px solid $border;
+            height:40px;
+            font-weight:bold;
+            transition:0.2s;
+        }
+
+        &__cancel{
+            background-color:#571000;
+            color:white;
+            &:hover {
+                background-color:$highlight;
+                color:$text;
+            }
+        }
+
+        &__checkout{
+            background-color:$text;
+            &:hover {
+                background-color:green;
+                color:$text;
+            }
+        }
+    }
+}
+
