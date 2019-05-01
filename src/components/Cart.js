@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import * as actionCreator from '../store/actions/actions'
 
 import '../scss/Cartlist.scss'
 
 class Cart extends Component {
+
+  
   render() {
     const cartItems = this.props.item;
     const cartList = cartItems.map( el =>
-      <li id={'item'+el.id} key={el.id} className='cart-list__item' style={{display:'none'}} >{el.orderedNum}x {el.name} | {(el.orderedNum * el.price)} GBP <button className='cart-list__deletebutton'>-</button></li>
+      <li id={'item'+el.id} key={el.id} className='cart-list__item' style={{display:'none'}} >{el.orderedNum}x {el.name} | {(el.orderedNum * el.price)} GBP <button onClick={() => this.props.removeItem(el.id, el.orderedNum)} className='cart-list__deletebutton'>-</button></li>
     )
 
     cartList.forEach(el => {
@@ -43,4 +46,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = dispatch => {
+  return {
+    removeItem: (id, orderedNum) => dispatch (actionCreator.removeItem(id, orderedNum))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

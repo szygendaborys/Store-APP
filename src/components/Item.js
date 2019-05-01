@@ -16,7 +16,7 @@ class Item extends Component {
                 <span className='item-image__hover'>
 
                     <p className='item-desc'>{this.props.desc}</p>
-                    <button id='likebutton' className='item-likebutton' onClick={() => this.props.addLike(this.props.id, this.props.wasLiked)}>
+                    <button id={this.props.id+'likebutton'} className='item-likebutton' onClick={() => this.props.addLike(this.props.id, this.props.wasLiked)}>
                         <i className="fas fa-heart"></i>
                     </button>
 

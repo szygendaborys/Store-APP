@@ -82,11 +82,27 @@ const reducer = (state = initialState, action) => {
         case 'ADD_LIKE':
                 return {
                     ...state,
+                    liked: state.liked + action.change,
                     item: state.item.map(el => {
                         if(el.id === action.id) {
                             return {
                                 ...el,
                                 wasLiked:action.value
+                            }
+                        } else {
+                            return el;
+                        }
+                    })
+                }
+        case 'REMOVE_ITEM':
+                return {
+                    ...state,
+                    cart:state.cart-1,
+                    item: state.item.map(el => {
+                        if(el.id === action.id && el.orderedNum > 0) {
+                            return {
+                                ...el,
+                                orderedNum: el.orderedNum-1
                             }
                         } else {
                             return el;
