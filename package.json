@@ -1,8 +1,10 @@
 {
-  "name": "to-do-list",
-  "version": "0.1.0",
-  "private": true,
+  "name": "shop-app",
+  "version": "1.0.0",
+  "private": false,
+  "homepage": "https://szygendaborys.github.io/Store-APP-src/",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -15,7 +17,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -5,6 +5,7 @@
     width:250px;
     background-color:$cart-background;
     border:2px solid $border;
+    z-index: 99;
     p {
         font-size:1.2rem;
         padding:5px;

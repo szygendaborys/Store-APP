@@ -55,3 +55,32 @@ export const removeItem = (id, orderedNum) => {
     dispatch(removeItm(id));
   } 
 }
+
+const showMenuREDUCER = () => {
+  return {
+    type:'CHANGE_MENU'
+  }
+}
+
+export const showMenu = toggleMenu => {
+  return dispatch => {
+    if(toggleMenu) {
+      //when you want to close
+      document.getElementById('burger-close').classList.add('hidden');
+      document.getElementById('burger-open').classList.remove('hidden');
+      document.getElementById('backgr-cover').style.display = 'none';
+      document.getElementById('backgr-cover').style.opacity = '0';
+      document.getElementById('navibar-mobile__list').style.top = '100vh';
+      document.getElementById('navibar-mobile').style.display = 'none';
+    } else {
+      document.getElementById('burger-open').classList.add('hidden');
+      document.getElementById('burger-close').classList.remove('hidden');
+      document.getElementById('backgr-cover').style.display = 'block';
+      document.getElementById('backgr-cover').style.opacity = '1';
+      document.getElementById('navibar-mobile__list').style.top = 'auto';
+      document.getElementById('navibar-mobile').style.display = 'block';
+    }
+
+    dispatch(showMenuREDUCER(toggleMenu));
+  }
+}

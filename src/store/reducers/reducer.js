@@ -1,6 +1,7 @@
 
 const initialState = {
     menuOpened: false,
+    toggleMenu: false,
     liked:0,
     cart:0,
     item: [
@@ -108,6 +109,11 @@ const reducer = (state = initialState, action) => {
                             return el;
                         }
                     })
+                }
+        case 'CHANGE_MENU':
+                return {
+                    ...state,
+                    toggleMenu:!state.toggleMenu
                 }
         default:
             break;
